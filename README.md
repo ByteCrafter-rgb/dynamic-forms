@@ -2,6 +2,8 @@
 
 A small design system plus a lead capture form that renders itself from a config array. React + TypeScript + Vite, plain CSS modules, no form or component libraries.
 
+Live demo: https://bytecrafter-rgb.github.io/dynamic-forms/
+
 ## Running it
 
 ```bash
