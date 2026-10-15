@@ -1,0 +1,81 @@
+/*
+ * Design tokens.
+ *
+ * Everything visual (colour, spacing, type, radii) comes from here so the
+ * atoms and layouts never hard-code values.
+ *
+ * Breakpoints
+ * -----------
+ * CSS custom properties can't be used inside @media queries, so the values
+ * below are documentation only. The real numbers are written out in
+ * src/form/DynamicForm.module.css and src/lead/LeadPage.module.css.
+ *
+ *   mobile   < 768px     single column, sticky submit bar
+ *   tablet   768-1024px  same layout as mobile, roomier page padding
+ *   desktop  > 1024px    two-column grid  ->  @media (min-width: 1025px)
+ */
+
+:root {
+  --bp-tablet: 768px;
+  --bp-desktop: 1025px;
+
+  /* colour */
+  --color-bg: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-text: #1b1f24;
+  --color-text-muted: #5b6470;
+  --color-border: #c9ced6;
+  --color-border-hover: #9aa3af;
+  --color-primary: #2557d6;
+  --color-primary-hover: #1d46ad;
+  --color-primary-contrast: #ffffff;
+  --color-focus: #2557d6;
+  --color-danger: #c62828;
+  --color-danger-bg: #fdecec;
+
+  /* spacing (4px scale) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* type */
+  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.75rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  --line-height: 1.5;
+
+  /* radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* controls */
+  --control-height: 44px;
+  --focus-ring: 0 0 0 3px rgb(37 87 214 / 0.3);
+  --shadow-bar: 0 -2px 8px rgb(0 0 0 / 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
