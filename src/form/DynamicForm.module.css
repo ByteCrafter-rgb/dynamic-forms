@@ -1,0 +1,69 @@
+/*
+ * Form layout, mobile first.
+ *
+ *   < 1025px  one column, submit bar sticks to the bottom of the screen
+ *   >= 1025px two columns, fields use their `span` (half | full)
+ *
+ * Breakpoints are literal because custom properties don't work in @media.
+ * See design-system/tokens/tokens.css for the documented values.
+ */
+
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  /* room so the sticky bar never sits on top of the last field */
+  padding-bottom: var(--space-2);
+}
+
+/* grid children shrink instead of pushing the page wider */
+.form > * {
+  min-width: 0;
+}
+
+.half,
+.full {
+  grid-column: 1 / -1;
+}
+
+.actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  grid-column: 1 / -1;
+  padding: var(--space-3) 0 calc(var(--space-3) + env(safe-area-inset-bottom));
+  background: var(--color-surface);
+  box-shadow: var(--shadow-bar);
+  /* stretch the bar's background out to the card edges */
+  margin-inline: calc(-1 * var(--form-bleed, 0px));
+  padding-inline: var(--form-bleed, 0px);
+}
+
+.submit {
+  width: 100%;
+}
+
+@media (min-width: 1025px) {
+  .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-5);
+    padding-bottom: 0;
+  }
+
+  .half {
+    grid-column: auto;
+  }
+
+  .actions {
+    position: static;
+    margin-inline: 0;
+    padding: 0;
+    box-shadow: none;
+    background: none;
+  }
+
+  .submit {
+    width: auto;
+    min-width: 160px;
+  }
+}
