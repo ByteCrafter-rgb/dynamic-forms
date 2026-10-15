@@ -1,0 +1,16 @@
+node_modules
+dist
+*.local
+.vite
+
+# editor / tooling
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.log
+
+.claude/
+CLAUDE.md
+
+requirements.md
